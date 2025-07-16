@@ -1,0 +1,194 @@
+/* You can add custom CSS and extend Boostrap styles in this file. Remember, Bootstrap is just CSS at the end of the day! */
+body {
+  width: 100%;
+  font-family: "Lato", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+#hero-section {
+  background-image: linear-gradient(
+      rgba(217, 95, 89, 0.1),
+      rgba(200, 172, 214, 0.55)
+    ),
+    url(img/test.jfif);
+  background-position: top;
+  background-size: cover;
+
+  height: 620px;
+  width: 100%;
+  color: white;
+  text-shadow: 2px 2px 0px rgb(60, 9, 108);
+  margin-top: 30px;
+  font-family: "Exo", sans-serif;
+  background-attachment: fixed;
+}
+
+#profile {
+  width: 150px;
+  height: 150px;
+  margin-top: 205px;
+  border-radius: 50%;
+  border: solid 3px rgb(134, 101, 145);
+  transition: width 0.5s ease, height 0.5s ease; /* Add transition */
+}
+#profile:hover {
+  width: 160px;
+  height: 160px;
+}
+
+#footer-section {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0px;
+  padding-top: 0px;
+  background-color: rgb(3, 6, 55);
+}
+
+.nav-link,
+.nav-link active,
+.navbar-brand {
+  color: #c8b6ff;
+}
+
+.navbar-custom {
+  background-color: rgb(91, 60, 91);
+}
+
+.img-skill {
+  width: 100px; /* Set a fixed width */
+  height: 100px; /* Set a fixed height */
+  object-fit: contain;
+}
+
+#mission-section {
+  color: rgb(64, 67, 48);
+  background-color: rgb(213, 198, 220);
+  height: 560px;
+  margin-top: 0px;
+}
+
+#mission-section p {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#mission-section img {
+  border-radius: 50px;
+  border: solid 2px rgb(36, 0, 70);
+}
+
+#skills-section {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  width: 100%;
+  background-color: rgb(117, 96, 116);
+  color: white;
+}
+
+#contact-section {
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  color: rgb(97, 61, 119);
+  margin-bottom: 0px;
+  height: 440px;
+  padding-top: 25px;
+}
+#carousel-section {
+  max-height: 650px;
+  padding: 0px;
+  background-color: rgb(62, 52, 62);
+  padding-bottom: 50px;
+}
+.carousel-example {
+  width: 60%;
+  margin-bottom: 13px;
+}
+/* Limit the height of the carousel */
+.carousel-inner {
+  max-height: 500px; /* Set your desired height here */
+  /* Prevent images from overflowing */
+}
+
+.carousel-item img {
+  width: 100%;
+  height: auto;
+  max-height: 500px; /* Ensure that the images don't exceed the max height */
+  object-fit: contain;
+}
+
+h1 {
+  padding-top: 15px;
+  padding-bottom: 10px;
+  font-weight: 700;
+}
+h3 {
+  color: white;
+  padding-top: 15px;
+  padding-bottom: 10px;
+  font-weight: 520;
+}
+
+.large-icon {
+  font-size: 4.5rem;
+  color: rgb(97, 61, 119);
+  margin-bottom: 0px;
+  transition: font-size 0.2s ease, color 0.2s ease;
+}
+
+.large-icon:hover {
+  color: rgb(52, 59, 67);
+  font-size: 4.9rem;
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 1140px;
+  }
+  #hero-section {
+    background-image: linear-gradient(
+        rgba(217, 95, 89, 0.1),
+        rgba(200, 172, 214, 0.55)
+      ),
+      url(img/test.jfif);
+    background-position: top;
+    background-size: cover;
+
+    height: 620px;
+    width: 100%;
+    color: white;
+    text-shadow: 2px 2px 0px rgb(60, 9, 108);
+    margin-top: 30px;
+    font-family: "Exo", sans-serif;
+    background-attachment: fixed;
+  }
+  #skills-section {
+    height: 380px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 20px;
+  }
+  #contact-section {
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    color: rgb(97, 61, 119);
+    margin-bottom: 0px;
+    height: 380px;
+    padding-top: 40px;
+  }
+  #profile {
+    width: 200px;
+    height: 200px;
+    margin-top: 185px;
+    border-radius: 50%;
+    border: solid 3px rgb(134, 101, 145);
+    transition: width 0.5s ease, height 0.5s ease; /* Add transition */
+  }
+  #profile:hover {
+    width: 160px;
+    height: 160px;
+  }
+}
