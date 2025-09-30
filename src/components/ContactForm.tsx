@@ -88,7 +88,7 @@ Message: ${formData.message}
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex justify-between items-center mb-6">
-              <h2 className="text-2xl font-bold text-gray-900">Let's Build Something Amazing</h2>
+              <h2 className="text-2xl font-bold text-gray-900">Let&apos;s Build Something Amazing</h2>
               <button
                 onClick={onClose}
                 className="p-2 hover:bg-gray-100 rounded-full transition-colors"
@@ -172,7 +172,7 @@ Message: ${formData.message}
                   animate={{ opacity: 1, y: 0 }}
                   className="p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg"
                 >
-                  Message sent successfully! I'll get back to you soon.
+                  Message sent successfully! I&apos;ll get back to you soon.
                 </motion.div>
               )}
 

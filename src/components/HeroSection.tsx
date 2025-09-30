@@ -115,7 +115,7 @@ export default function HeroSection() {
               whileTap={{ scale: 0.95 }}
               className="px-6 py-3 bg-white text-gray-900 font-semibold rounded-full transition-all duration-300 hover:shadow-2xl text-sm"
             >
-              Let's Build Something Amazing
+              Let&apos;s Build Something Amazing
             </motion.button>
             
             <motion.a
