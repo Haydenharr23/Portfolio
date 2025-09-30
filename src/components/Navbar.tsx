@@ -43,8 +43,9 @@ export default function Navbar() {
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
           
-          <div className={`${isOpen ? 'block' : 'hidden'} md:block`}>
-            <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-8">
+          {/* Desktop Navigation */}
+          <div className="hidden md:block">
+            <div className="flex space-x-8">
               {navItems.map((item, index) => (
                 <motion.a
                   key={item.href}
@@ -54,7 +55,6 @@ export default function Navbar() {
                   whileHover={{ scale: 1.05 }}
                   className="text-white hover:text-purple-300 transition-colors duration-300 px-3 py-2 rounded-md hover:bg-white hover:bg-opacity-10"
                   href={item.href}
-                  onClick={() => setIsOpen(false)}
                 >
                   {item.label}
                 </motion.a>
@@ -62,8 +62,27 @@ export default function Navbar() {
             </div>
           </div>
         </div>
+        
+        {/* Mobile Navigation */}
+        <div className={`${isOpen ? 'block' : 'hidden'} md:hidden`}>
+          <div className="px-2 pt-2 pb-3 space-y-1 bg-black bg-opacity-95 backdrop-blur-md rounded-lg mt-2">
+            {navItems.map((item, index) => (
+              <motion.a
+                key={item.href}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: index * 0.1 }}
+                whileHover={{ scale: 1.05 }}
+                className="block text-white hover:text-purple-300 transition-colors duration-300 px-3 py-2 rounded-md hover:bg-white hover:bg-opacity-10"
+                href={item.href}
+                onClick={() => setIsOpen(false)}
+              >
+                {item.label}
+              </motion.a>
+            ))}
+          </div>
+        </div>
       </div>
     </motion.nav>
   )
 }
-
