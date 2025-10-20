@@ -28,7 +28,7 @@ export default function ContactSection() {
   return (
     <motion.section
       id="contact-section"
-      className="py-20 bg-white"
+      className="py-12 md:py-20 bg-white"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
@@ -39,12 +39,12 @@ export default function ContactSection() {
           initial={{ y: 30, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.6 }}
-          className="text-center text-4xl font-bold mb-12 text-gray-800 font-exo"
+          className="text-center text-4xl font-bold mb-8 md:mb-12 text-gray-800 font-exo"
         >
           Contact
         </motion.h1>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="flex justify-center space-x-12 md:space-x-16">
           {contactItems.map((item, index) => (
             <motion.div
               key={item.label}
@@ -61,7 +61,7 @@ export default function ContactSection() {
                 className={`${item.color} transition-colors duration-300`}
                 aria-label={item.label}
               >
-                <item.icon className="w-12 h-12" />
+                <item.icon className="w-8 h-8 md:w-12 md:h-12" />
               </a>
             </motion.div>
           ))}

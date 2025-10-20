@@ -56,7 +56,7 @@ export default function HeroSection() {
         >
           <div className="relative w-48 h-48">
             <Image
-              src="/images/me.jpg"
+              src="/images/portfoliopic.jpg"
               alt="Hayden Harris"
               fill
               className="rounded-full border-4 border-white shadow-2xl hover:scale-105 transition-all duration-500 object-cover"
