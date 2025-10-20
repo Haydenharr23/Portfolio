@@ -8,11 +8,15 @@ import { ChevronLeft, ChevronRight } from 'lucide-react'
 const petImages = [
   {
     src: '/images/cats1.jpg',
-    alt: 'Cats 1'
+    alt: 'Noodle'
   },
   {
     src: '/images/cats2.jpg',
-    alt: 'Cats 2'
+    alt: 'All of my cats'
+  },
+  {
+    src: '/images/prismopumpkin.jpg',
+    alt: 'Prismo'
   },
   {
     src: '/images/gecko.jpg',
