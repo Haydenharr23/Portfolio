@@ -6,7 +6,7 @@ import { Linkedin, Mail, Github } from 'lucide-react'
 const contactItems = [
   {
     icon: Linkedin,
-    href: 'https://www.linkedin.com/in/hayden-harris-workspace/',
+    href: 'https://www.linkedin.com/in/haydendev/',
     label: 'LinkedIn',
     color: 'text-blue-600 hover:text-blue-800'
   },

@@ -141,5 +141,5 @@ This project is open source and available under the [MIT License](LICENSE).
 
 Hayden Harris
 - Email: haydenharr@gmail.com
-- LinkedIn: [hayden-harris-workspace](https://www.linkedin.com/in/hayden-harris-workspace/)
+- LinkedIn: [haydendev](https://www.linkedin.com/in/haydendev/)
 - GitHub: [Haydenharr23](https://github.com/Haydenharr23)

@@ -72,6 +72,7 @@ export default function CarouselSection() {
               alt={petImages[currentIndex].alt}
               fill
               className="object-contain"
+              unoptimized
             />
           </motion.div>
           
