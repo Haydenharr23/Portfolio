@@ -17,10 +17,6 @@ const petImages = [
   {
     src: '/images/prismopumpkin.jpg',
     alt: 'Prismo'
-  },
-  {
-    src: '/images/gecko.jpg',
-    alt: 'Gecko'
   }
 ]
 
