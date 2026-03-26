@@ -5,15 +5,39 @@ import Image from 'next/image'
 import { ArrowDown } from 'lucide-react'
 import { useState } from 'react'
 import ContactForm from './ContactForm'
+import { useAccent } from './AccentProvider'
 
 export default function HeroSection() {
   const [isContactFormOpen, setIsContactFormOpen] = useState(false)
+  const accent = useAccent()
+
+  const baseGradient =
+    accent === 'purple'
+      ? 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
+      : 'linear-gradient(135deg, #064e3b 0%, #022c22 100%)'
+
+  const gradientSteps =
+    accent === 'purple'
+      ? [
+          'linear-gradient(135deg, #4c1d95 0%, #6b21a8 50%, #7c3aed 100%)',
+          'linear-gradient(135deg, #7c3aed 0%, #8b5cf6 50%, #a855f7 100%)',
+          'linear-gradient(135deg, #a855f7 0%, #c084fc 50%, #8b5cf6 100%)',
+          'linear-gradient(135deg, #8b5cf6 0%, #7c3aed 50%, #6b21a8 100%)',
+          'linear-gradient(135deg, #6b21a8 0%, #4c1d95 50%, #7c3aed 100%)',
+        ]
+      : [
+          'linear-gradient(135deg, #022c22 0%, #064e3b 50%, #065f46 100%)',
+          'linear-gradient(135deg, #064e3b 0%, #065f46 50%, #047857 100%)',
+          'linear-gradient(135deg, #065f46 0%, #047857 50%, #065f46 100%)',
+          'linear-gradient(135deg, #047857 0%, #065f46 50%, #064e3b 100%)',
+          'linear-gradient(135deg, #065f46 0%, #022c22 50%, #064e3b 100%)',
+        ]
   return (
     <motion.section
       id="hero-section"
       className="relative h-[80vh] flex items-center justify-center overflow-hidden"
       style={{
-        background: 'linear-gradient(135deg, #064e3b 0%, #022c22 100%)',
+        background: baseGradient,
         backgroundAttachment: 'fixed'
       }}
       initial={{ opacity: 0 }}
@@ -25,13 +49,7 @@ export default function HeroSection() {
         <motion.div
           className="absolute inset-0"
           animate={{
-            background: [
-              'linear-gradient(135deg, #022c22 0%, #064e3b 50%, #065f46 100%)',
-              'linear-gradient(135deg, #064e3b 0%, #065f46 50%, #047857 100%)',
-              'linear-gradient(135deg, #065f46 0%, #047857 50%, #065f46 100%)',
-              'linear-gradient(135deg, #047857 0%, #065f46 50%, #064e3b 100%)',
-              'linear-gradient(135deg, #065f46 0%, #022c22 50%, #064e3b 100%)'
-            ]
+            background: gradientSteps
           }}
           transition={{
             duration: 12,
@@ -84,9 +102,16 @@ export default function HeroSection() {
             transition={{ delay: 0.7, duration: 0.8 }}
             className="mx-auto mb-8 max-w-xl text-lg leading-relaxed text-white drop-shadow-lg md:text-xl"
           >
-            I&apos;m a frontend and full-stack developer who loves making things for the web that look sharp, feel smooth,
-            and actually make sense for the people using them.
+            I&apos;m a frontend and full-stack developer currently working at Kingdom Culture Agency, fluent in WordPress,
+            web coding, and several programming languages.
           </motion.p>
+          <p
+            className={`mx-auto -mt-4 mb-8 max-w-xl text-sm ${
+              accent === 'purple' ? 'text-purple-100' : 'text-emerald-100'
+            } drop-shadow-md md:text-base`}
+          >
+            Based in Des Moines, Iowa, and studying online at Arizona State University.
+          </p>
           
           <motion.div
             initial={{ y: 30, opacity: 0 }}

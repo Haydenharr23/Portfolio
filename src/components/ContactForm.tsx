@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
 import { X, Send, User, Phone, MessageSquare } from 'lucide-react'
+import { useAccent } from './AccentProvider'
 
 interface ContactFormProps {
   isOpen: boolean
@@ -18,6 +19,11 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+
+  const accent = useAccent()
+  const focusRingClass = accent === 'purple' ? 'focus:ring-purple-500' : 'focus:ring-emerald-500'
+  const submitButtonClass =
+    accent === 'purple' ? 'bg-purple-600 hover:bg-purple-700' : 'bg-emerald-600 hover:bg-emerald-700'
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
@@ -110,7 +116,7 @@ Message: ${formData.message}
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-colors"
+                  className={`w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 ${focusRingClass} focus:border-transparent transition-colors`}
                   placeholder="Your full name"
                 />
               </div>
@@ -127,7 +133,7 @@ Message: ${formData.message}
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-colors"
+                  className={`w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 ${focusRingClass} focus:border-transparent transition-colors`}
                   placeholder="your.email@example.com"
                 />
               </div>
@@ -144,7 +150,7 @@ Message: ${formData.message}
                   value={formData.phone}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-colors"
+                  className={`w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 ${focusRingClass} focus:border-transparent transition-colors`}
                   placeholder="(555) 123-4567"
                 />
               </div>
@@ -161,7 +167,7 @@ Message: ${formData.message}
                   onChange={handleChange}
                   required
                   rows={4}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-colors resize-none"
+                  className={`w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 ${focusRingClass} focus:border-transparent transition-colors resize-none`}
                   placeholder="Tell me about your project, ideas, or what you'd like to collaborate on..."
                 />
               </div>
@@ -191,7 +197,7 @@ Message: ${formData.message}
                 disabled={isSubmitting}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full bg-emerald-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-emerald-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center"
+                className={`w-full text-white py-3 px-6 rounded-lg font-semibold ${submitButtonClass} disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center`}
               >
                 {isSubmitting ? (
                   <>

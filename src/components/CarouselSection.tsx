@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { useState } from 'react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
+import { useAccent } from './AccentProvider'
 
 const petImages = [
   {
@@ -22,6 +23,8 @@ const petImages = [
 
 export default function CarouselSection() {
   const [currentIndex, setCurrentIndex] = useState(0)
+  const accent = useAccent()
+  const activeDotClass = accent === 'purple' ? 'bg-purple-600' : 'bg-emerald-600'
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => 
@@ -96,7 +99,7 @@ export default function CarouselSection() {
                 onClick={() => setCurrentIndex(index)}
                 className={`w-4 h-4 rounded-full transition-all duration-300 ${
                   index === currentIndex 
-                    ? 'bg-emerald-600 scale-125' 
+                    ? `${activeDotClass} scale-125` 
                     : 'bg-gray-300 hover:bg-gray-400 hover:scale-110'
                 }`}
                 aria-label={`Go to slide ${index + 1}`}

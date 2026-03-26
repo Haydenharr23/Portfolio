@@ -9,6 +9,7 @@ import {
   Github,
   PenTool,
 } from 'lucide-react'
+import { useAccent } from './AccentProvider'
 
 const skills = [
   {
@@ -56,6 +57,9 @@ const skills = [
 ]
 
 export default function SkillsSection() {
+  const accent = useAccent()
+  const iconTextClass = accent === 'purple' ? 'text-purple-600' : 'text-emerald-600'
+
   return (
     <motion.section
       id="skills-section"
@@ -90,7 +94,7 @@ export default function SkillsSection() {
                 <motion.div
                   whileHover={{ rotate: [0, -5, 5, 0] }}
                   transition={{ duration: 0.5 }}
-                  className="mb-4 flex justify-center text-emerald-600"
+                  className={`mb-4 flex justify-center ${iconTextClass}`}
                 >
                   <Icon className="h-16 w-16" strokeWidth={1.25} aria-hidden />
                 </motion.div>

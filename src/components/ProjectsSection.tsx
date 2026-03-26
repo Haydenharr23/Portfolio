@@ -3,67 +3,51 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { ExternalLink, Github } from 'lucide-react'
+import { useAccent } from './AccentProvider'
 
 const projects = [
   {
     id: 1,
     title: 'Kingdom Culture Agency',
     description:
-      'Full-service creative agency site: strategy, branding, content, motion, social, web, and podcasting — built for clarity and conversion.',
+      'Built for Kingdom Culture Agency in Nashville TN: Full WordPress/Elementor rebrand update. Added new pages, scheduled blog content, improved SEO structure, and integrated case studies.',
     image:
       'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=400&fit=crop&q=80',
-    technologies: ['WordPress', 'Responsive Design', 'UI/UX'],
+    technologies: ['WordPress', 'Elementor', 'SEO'],
     liveDemo: 'https://kingdomcultureagency.com/'
   },
   {
     id: 2,
     title: 'Spartan Roof Coatings',
     description:
-      'Commercial and industrial roofing in Clarksville, TN — coatings, restoration, inspections, and estimates with a trust-focused layout.',
+      'Client website delivered through my internship at Kingdom Culture Agency: led a team of 2 on a full WordPress update, built pages with WPBakery, and integrated SEO-focused blog content.',
     image: '/images/project-spartan-roof.jpg',
-    technologies: ['WordPress', 'SEO', 'Responsive Design'],
+    technologies: ['WordPress', 'WPBakery', 'SEO'],
     liveDemo: 'https://spartanroofcoating.com/'
   },
   {
     id: 3,
     title: 'Dog Training Site',
     description:
-      'Single-page dog training site with structured sections and interactive UI — final project showcasing layout, styling, and scripting.',
+      'Fictional dog training website built as a final class project, featuring structured sections, responsive layout, and interactive JavaScript.',
     image: '/images/project-dog-training.jpg',
     technologies: ['HTML5', 'CSS3', 'JavaScript'],
     liveDemo: 'https://haydenharr23.github.io/Dog-Training-Site/',
     github: 'https://github.com/Haydenharr23/Dog-Training-Site'
-  },
-  {
-    id: 4,
-    title: 'Marriott Hotel Booking',
-    description: 'A comprehensive hotel booking platform featuring destination search, date selection, and property recommendations.',
-    image: '/images/homepage1.png',
-    technologies: ['HTML5', 'CSS3', 'JavaScript'],
-    liveDemo: 'https://haydenharr23.github.io/Marriott-Hotel-Booking-Site/',
-    github: 'https://github.com/Haydenharr23/Marriott-Hotel-Booking-Site'
-  },
-  {
-    id: 5,
-    title: 'Airbnb Booking',
-    description: 'A fully functional accommodation booking platform with advanced filtering options and clean interface.',
-    image: '/images/homepage2.png',
-    technologies: ['HTML5', 'CSS3', 'JavaScript'],
-    liveDemo: 'https://haydenharr23.github.io/Airbnb_booking_site/',
-    github: 'https://github.com/Haydenharr23/Airbnb_booking_site'
-  },
-  {
-    id: 6,
-    title: 'Sprinkles Cupcakes',
-    description: 'An elegant e-commerce website for a premium cupcake brand with beautiful visual design.',
-    image: '/images/homepage3.png',
-    technologies: ['HTML5', 'CSS3', 'JavaScript'],
-    liveDemo: 'https://haydenharr23.github.io/Sprinkles_Cupcakes/',
-    github: 'https://github.com/Haydenharr23/Sprinkles_Cupcakes'
   }
 ]
 
 export default function ProjectsSection() {
+  const accent = useAccent()
+  const chipClasses =
+    accent === 'purple'
+      ? 'rounded-full bg-purple-100 px-3 py-1 text-xs font-medium text-purple-800'
+      : 'rounded-full bg-emerald-100 px-3 py-1 text-xs font-medium text-emerald-800'
+  const liveButtonClasses =
+    accent === 'purple'
+      ? 'bg-purple-600 hover:bg-purple-700'
+      : 'bg-emerald-600 hover:bg-emerald-700'
+
   return (
     <motion.section
       id="projects-section"
@@ -83,7 +67,7 @@ export default function ProjectsSection() {
           Featured Projects
         </motion.h1>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
+        <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 gap-6 items-stretch">
           {projects.map((project, index) => (
             <motion.div
               key={project.id}
@@ -93,9 +77,9 @@ export default function ProjectsSection() {
               whileHover={{ y: -5 }}
               className="group flex h-full min-h-0 flex-col"
             >
-              <div className="flex h-full min-h-[26rem] flex-col overflow-hidden rounded-xl bg-white shadow-md transition-all duration-300 hover:shadow-xl">
+              <div className="flex h-full min-h-[22rem] sm:min-h-[26rem] flex-col rounded-xl bg-white shadow-md transition-all duration-300 hover:shadow-xl">
                 {/* Image — fixed aspect so every card matches */}
-                <div className="relative h-48 w-full shrink-0 overflow-hidden sm:h-52">
+                <div className="relative h-44 w-full shrink-0 overflow-hidden sm:h-52">
                   <Image
                     src={project.image}
                     alt={project.title}
@@ -109,12 +93,12 @@ export default function ProjectsSection() {
                 </div>
 
                 {/* Content — flex-1 fills remaining height; buttons stay at bottom */}
-                <div className="flex min-h-0 flex-1 flex-col p-6">
-                  <h3 className="mb-3 shrink-0 font-exo text-xl font-bold text-gray-800">
+                <div className="flex min-h-0 flex-1 flex-col p-4 sm:p-6">
+                  <h3 className="mb-3 shrink-0 font-exo text-base sm:text-xl font-bold text-gray-800">
                     {project.title}
                   </h3>
 
-                  <p className="mb-4 line-clamp-5 min-h-[7.5rem] flex-1 text-sm leading-relaxed text-gray-600">
+                  <p className="mb-4 flex-1 text-xs sm:text-sm leading-relaxed text-gray-600 break-words">
                     {project.description}
                   </p>
 
@@ -123,7 +107,7 @@ export default function ProjectsSection() {
                     {project.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="rounded-full bg-emerald-100 px-3 py-1 text-xs font-medium text-emerald-800"
+                        className={chipClasses}
                       >
                         {tech}
                       </span>
@@ -131,12 +115,12 @@ export default function ProjectsSection() {
                   </div>
 
                   {/* Buttons */}
-                  <div className="mt-auto flex shrink-0 gap-3">
+                  <div className="mt-auto flex shrink-0 gap-2">
                     <a
                       href={project.liveDemo}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`flex items-center justify-center gap-2 px-4 py-2 bg-emerald-600 text-white rounded-lg text-sm font-medium hover:bg-emerald-700 transition-colors ${project.github ? 'flex-1' : 'w-full'}`}
+                      className={`flex items-center justify-center gap-2 px-3 py-2 ${liveButtonClasses} text-white rounded-lg text-xs sm:text-sm font-medium transition-colors ${project.github ? 'flex-1' : 'w-full'}`}
                     >
                       <ExternalLink className="w-4 h-4" />
                       Live Site
@@ -146,7 +130,7 @@ export default function ProjectsSection() {
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-gray-600 text-white rounded-lg text-sm font-medium hover:bg-gray-700 transition-colors"
+                        className="flex-1 flex items-center justify-center gap-2 px-3 py-2 bg-gray-600 text-white rounded-lg text-xs sm:text-sm font-medium hover:bg-gray-700 transition-colors"
                       >
                         <Github className="w-4 h-4" />
                         Code

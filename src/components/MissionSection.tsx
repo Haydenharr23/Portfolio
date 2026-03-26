@@ -2,32 +2,37 @@
 
 import { motion } from 'framer-motion'
 import { Target, Lightbulb, Heart } from 'lucide-react'
-
-const missionCards = [
-  {
-    icon: Target,
-    title: "Continuous Learning",
-    description:
-      "Studying Graphic Information Technology at ASU with a 4.0 GPA in relevant coursework. I stay current with front-end and full-stack tools through certifications in Python, Java, and web development.",
-    color: "from-emerald-500 to-emerald-600"
-  },
-  {
-    icon: Lightbulb,
-    title: "Build & Ship",
-    description:
-      "Hands-on experience from concept to completion: full-stack projects at Global Tech (HTML, CSS, JavaScript, Bootstrap, Git) and WordPress development, branding, and project coordination at Kingdom Culture Agency.",
-    color: "from-teal-500 to-teal-600"
-  },
-  {
-    icon: Heart,
-    title: "User-Centric Design",
-    description:
-      "I focus on responsive layouts, clear UX, and SEO-minded structure — applications that work well for users and teams.",
-    color: "from-green-500 to-green-700"
-  }
-]
+import { useAccent } from './AccentProvider'
 
 export default function MissionSection() {
+  const accent = useAccent()
+  const cardGradient =
+    accent === 'purple' ? 'from-purple-500 to-purple-600' : 'from-emerald-500 to-emerald-600'
+
+  const missionCards = [
+    {
+      icon: Target,
+      title: "Continuous Learning",
+      description:
+        "Studying Graphic Information Technology at ASU with a 4.0 GPA in relevant coursework. I stay current with front-end and full-stack tools through certifications in Python, Java, and web development.",
+      color: cardGradient,
+    },
+    {
+      icon: Lightbulb,
+      title: "Build & Ship",
+      description:
+        "Hands-on experience from concept to completion: full-stack projects at Global Tech (HTML, CSS, JavaScript, Bootstrap, Git) and WordPress development, branding, and project coordination at Kingdom Culture Agency.",
+      color: cardGradient,
+    },
+    {
+      icon: Heart,
+      title: "User-Centric Design",
+      description:
+        "I focus on responsive layouts, clear UX, and SEO-minded structure — applications that work well for users and teams.",
+      color: cardGradient,
+    },
+  ]
+
   return (
     <motion.section
       id="mission-section"

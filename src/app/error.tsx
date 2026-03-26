@@ -1,5 +1,7 @@
 'use client'
 
+import { useAccent } from '@/components/AccentProvider'
+
 export default function Error({
   error,
   reset,
@@ -7,6 +9,10 @@ export default function Error({
   error: Error & { digest?: string }
   reset: () => void
 }) {
+  const accent = useAccent()
+  const tryAgainClass =
+    accent === 'purple' ? 'bg-purple-600 hover:bg-purple-700' : 'bg-emerald-600 hover:bg-emerald-700'
+
   return (
     <div className="flex min-h-screen flex-col items-center justify-center gap-4 bg-gray-100 p-8 text-center">
       <h2 className="font-exo text-2xl font-bold text-gray-800">Something went wrong</h2>
@@ -22,7 +28,7 @@ export default function Error({
       <button
         type="button"
         onClick={() => reset()}
-        className="rounded-lg bg-emerald-600 px-6 py-2 text-sm font-medium text-white hover:bg-emerald-700"
+        className={`rounded-lg px-6 py-2 text-sm font-medium text-white ${tryAgainClass}`}
       >
         Try again
       </button>

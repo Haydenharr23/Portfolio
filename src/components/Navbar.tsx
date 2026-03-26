@@ -3,15 +3,20 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Star, Menu, X } from 'lucide-react'
+import { useAccent } from './AccentProvider'
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
+  const accent = useAccent()
+  const navHoverText =
+    accent === 'purple' ? 'hover:text-purple-300' : 'hover:text-emerald-300'
 
   const navItems = [
     { href: '#mission-section', label: 'Mission' },
     { href: '#projects-section', label: 'Projects' },
     { href: '#skills-section', label: 'Skills' },
     { href: '#contact-section', label: 'Contact' },
+    { href: '/documents/Hayden-Harris-Resume-2026.pdf', label: 'Resume', external: true },
   ]
 
   return (
@@ -53,8 +58,10 @@ export default function Navbar() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
                   whileHover={{ scale: 1.05 }}
-                  className="text-white hover:text-emerald-300 transition-colors duration-300 px-3 py-2 rounded-md hover:bg-white hover:bg-opacity-10"
+                  className={`text-white ${navHoverText} transition-colors duration-300 px-3 py-2 rounded-md hover:bg-white hover:bg-opacity-10`}
                   href={item.href}
+                  target={item.external ? '_blank' : undefined}
+                  rel={item.external ? 'noopener noreferrer' : undefined}
                 >
                   {item.label}
                 </motion.a>
@@ -73,8 +80,10 @@ export default function Navbar() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: index * 0.1 }}
                 whileHover={{ scale: 1.05 }}
-                className="block text-white hover:text-emerald-300 transition-colors duration-300 px-3 py-2 rounded-md hover:bg-white hover:bg-opacity-10"
+                className={`block text-white ${navHoverText} transition-colors duration-300 px-3 py-2 rounded-md hover:bg-white hover:bg-opacity-10`}
                 href={item.href}
+                target={item.external ? '_blank' : undefined}
+                rel={item.external ? 'noopener noreferrer' : undefined}
                 onClick={() => setIsOpen(false)}
               >
                 {item.label}

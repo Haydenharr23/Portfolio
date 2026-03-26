@@ -2,29 +2,36 @@
 
 import { motion } from 'framer-motion'
 import { Linkedin, Mail, Github } from 'lucide-react'
-
-const contactItems = [
-  {
-    icon: Linkedin,
-    href: 'https://www.linkedin.com/in/haydendev/',
-    label: 'LinkedIn',
-    color: 'text-emerald-600 hover:text-emerald-800'
-  },
-  {
-    icon: Mail,
-    href: 'mailto:haydenharr@gmail.com',
-    label: 'Email',
-    color: 'text-red-600 hover:text-red-800'
-  },
-  {
-    icon: Github,
-    href: 'https://github.com/Haydenharr23',
-    label: 'GitHub',
-    color: 'text-gray-800 hover:text-gray-600'
-  }
-]
+import { useAccent } from './AccentProvider'
 
 export default function ContactSection() {
+  const accent = useAccent()
+  const linkedInColor =
+    accent === 'purple'
+      ? 'text-purple-600 hover:text-purple-800'
+      : 'text-emerald-600 hover:text-emerald-800'
+
+  const contactItems = [
+    {
+      icon: Linkedin,
+      href: 'https://www.linkedin.com/in/haydendev/',
+      label: 'LinkedIn',
+      color: linkedInColor,
+    },
+    {
+      icon: Mail,
+      href: 'mailto:haydenharr@gmail.com',
+      label: 'Email',
+      color: 'text-red-600 hover:text-red-800',
+    },
+    {
+      icon: Github,
+      href: 'https://github.com/Haydenharr23',
+      label: 'GitHub',
+      color: 'text-gray-800 hover:text-gray-600',
+    },
+  ]
+
   return (
     <motion.section
       id="contact-section"

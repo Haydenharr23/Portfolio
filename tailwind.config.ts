@@ -9,8 +9,8 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        'exo': ['Exo', 'sans-serif'],
-        'lato': ['Lato', 'sans-serif'],
+        'exo': ['var(--font-exo)', 'sans-serif'],
+        'lato': ['var(--font-lato)', 'sans-serif'],
       },
       colors: {
         'custom-dark': '#1a1a1a',
