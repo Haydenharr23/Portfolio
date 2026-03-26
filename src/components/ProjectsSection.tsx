@@ -67,7 +67,7 @@ export default function ProjectsSection() {
           Featured Projects
         </motion.h1>
         
-        <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 gap-6 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch">
           {projects.map((project, index) => (
             <motion.div
               key={project.id}
@@ -77,7 +77,7 @@ export default function ProjectsSection() {
               whileHover={{ y: -5 }}
               className="group flex h-full min-h-0 flex-col"
             >
-              <div className="flex h-full min-h-[22rem] sm:min-h-[26rem] flex-col rounded-xl bg-white shadow-md transition-all duration-300 hover:shadow-xl">
+              <div className="flex h-full min-h-[20rem] sm:min-h-[26rem] flex-col rounded-xl bg-white shadow-md transition-all duration-300 hover:shadow-xl">
                 {/* Image — fixed aspect so every card matches */}
                 <div className="relative h-44 w-full shrink-0 overflow-hidden sm:h-52">
                   <Image

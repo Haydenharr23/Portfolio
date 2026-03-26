@@ -35,7 +35,7 @@ export default function HeroSection() {
   return (
     <motion.section
       id="hero-section"
-      className="relative h-[80vh] flex items-center justify-center overflow-hidden"
+      className="relative min-h-[80svh] flex items-center justify-center"
       style={{
         background: baseGradient,
         backgroundAttachment: 'fixed'
@@ -65,14 +65,14 @@ export default function HeroSection() {
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
+      <div className="relative z-10 text-center px-4 max-w-6xl mx-auto pb-20 pt-10 sm:pb-0 sm:pt-0">
         <motion.div
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
-          className="mb-8 flex justify-center"
+          className="mb-6 sm:mb-8 flex justify-center"
         >
-          <div className="relative w-48 h-48">
+          <div className="relative w-40 h-40 sm:w-48 sm:h-48">
             <Image
               src="/images/portfoliopic.png"
               alt="Hayden Harris — professional headshot with city skyline"
@@ -90,7 +90,7 @@ export default function HeroSection() {
           transition={{ delay: 0.5, duration: 0.8 }}
           className="space-y-4"
         >
-          <h1 className="text-5xl md:text-6xl font-bold text-white mb-2 tracking-tight drop-shadow-2xl">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-2 tracking-tight drop-shadow-2xl">
             <span className="bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent drop-shadow-2xl">
               Hayden Harris
             </span>
@@ -100,7 +100,7 @@ export default function HeroSection() {
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.7, duration: 0.8 }}
-            className="mx-auto mb-8 max-w-xl text-lg leading-relaxed text-white drop-shadow-lg md:text-xl"
+            className="mx-auto mb-6 sm:mb-8 max-w-xl text-lg leading-relaxed text-white drop-shadow-lg md:text-xl"
           >
             I&apos;m a frontend and full-stack developer currently working at Kingdom Culture Agency, fluent in WordPress,
             web coding, and several programming languages.
@@ -145,7 +145,7 @@ export default function HeroSection() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2, duration: 1 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2"
       >
         <motion.div
           animate={{ y: [0, 10, 0] }}
