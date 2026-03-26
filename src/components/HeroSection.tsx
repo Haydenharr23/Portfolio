@@ -35,9 +35,11 @@ export default function HeroSection() {
   return (
     <motion.section
       id="hero-section"
-      className="relative min-h-[80svh] flex items-center justify-center"
+      className="relative flex min-h-[80svh] flex-col"
       style={{
-        background: baseGradient,
+        // Use backgroundImage instead of the `background` shorthand to avoid
+        // conflicts with `backgroundAttachment` (React warning).
+        backgroundImage: baseGradient,
         backgroundAttachment: 'fixed'
       }}
       initial={{ opacity: 0 }}
@@ -49,7 +51,7 @@ export default function HeroSection() {
         <motion.div
           className="absolute inset-0"
           animate={{
-            background: gradientSteps
+            backgroundImage: gradientSteps
           }}
           transition={{
             duration: 12,
@@ -64,8 +66,8 @@ export default function HeroSection() {
         />
       </div>
 
-      {/* Main Content */}
-      <div className="relative z-10 text-center px-4 max-w-6xl mx-auto pb-20 pt-10 sm:pb-0 sm:pt-0">
+      {/* Main Content — flex-1 + justify-center keeps content vertically centered without overlapping the scroll row */}
+      <div className="relative z-10 mx-auto flex min-h-0 w-full max-w-6xl flex-1 flex-col justify-center px-4 py-6 text-center sm:py-8">
         <motion.div
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
@@ -106,7 +108,7 @@ export default function HeroSection() {
             web coding, and several programming languages.
           </motion.p>
           <p
-            className={`mx-auto -mt-4 mb-8 max-w-xl text-sm ${
+            className={`mx-auto -mt-4 mb-6 sm:mb-8 max-w-xl text-sm ${
               accent === 'purple' ? 'text-purple-100' : 'text-emerald-100'
             } drop-shadow-md md:text-base`}
           >
@@ -140,12 +142,12 @@ export default function HeroSection() {
         </motion.div>
       </div>
 
-      {/* Scroll Indicator */}
+      {/* Scroll Indicator — in document flow so it never sits on top of hero content on short viewports */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2, duration: 1 }}
-        className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2"
+        className="relative z-10 flex shrink-0 justify-center pb-4 pt-2 sm:pb-6 sm:pt-3"
       >
         <motion.div
           animate={{ y: [0, 10, 0] }}

@@ -42,14 +42,14 @@ export default function ContactSection() {
       viewport={{ once: true }}
     >
       <div className="container mx-auto px-4">
-        <motion.h1
+        <motion.h2
           initial={{ y: 30, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.6 }}
           className="text-center text-4xl font-bold mb-8 md:mb-12 text-gray-800 font-exo"
         >
           Contact
-        </motion.h1>
+        </motion.h2>
         
         <div className="flex flex-wrap justify-center gap-10 md:gap-14">
           {contactItems.map((item, index) => (

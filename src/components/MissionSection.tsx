@@ -49,9 +49,9 @@ export default function MissionSection() {
           transition={{ delay: 0.2, duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h1 className="text-4xl font-bold text-gray-800 font-exo mb-4">
+          <h2 className="text-4xl font-bold text-gray-800 font-exo mb-4">
             My Mission
-          </h1>
+          </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             From coursework and certifications to internships at Global Tech and Kingdom Culture Agency — focused on
             polished, accessible, and maintainable web experiences.
