@@ -14,8 +14,9 @@ const lato = Lato({
 })
 
 export const metadata: Metadata = {
-  title: 'Hayden Portfolio',
-  description: 'Web Developer | Software Developer Portfolio',
+  title: 'Hayden Harris | Frontend & Full-Stack Developer',
+  description:
+    'Frontend and full-stack web developer studying Graphic Information Technology at Arizona State University. Experience with React, Next.js, WordPress, and more.',
 }
 
 export default function RootLayout({
@@ -24,8 +25,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={`${exo.variable} ${lato.variable} font-lato`}>
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${exo.variable} ${lato.variable} font-lato`} suppressHydrationWarning>
         {children}
       </body>
     </html>

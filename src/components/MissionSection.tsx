@@ -7,20 +7,23 @@ const missionCards = [
   {
     icon: Target,
     title: "Continuous Learning",
-    description: "I'm passionate about constantly expanding my skills and staying up-to-date with the latest technologies in web development and software engineering.",
-    color: "from-blue-500 to-blue-600"
+    description:
+      "Studying Graphic Information Technology at ASU with a 4.0 GPA in relevant coursework. I stay current with front-end and full-stack tools through certifications in Python, Java, and web development.",
+    color: "from-emerald-500 to-emerald-600"
   },
   {
     icon: Lightbulb,
-    title: "Innovation & Creativity",
-    description: "I love building responsive and interactive websites that not only catch users' attention but provide meaningful and engaging experiences.",
-    color: "from-purple-500 to-purple-600"
+    title: "Build & Ship",
+    description:
+      "Hands-on experience from concept to completion: full-stack projects at Global Tech (HTML, CSS, JavaScript, Bootstrap, Git) and WordPress development, branding, and project coordination at Kingdom Culture Agency.",
+    color: "from-teal-500 to-teal-600"
   },
   {
     icon: Heart,
     title: "User-Centric Design",
-    description: "My focus is on creating digital experiences that are intuitive, accessible, and provide genuine value to users through thoughtful design and development.",
-    color: "from-pink-500 to-pink-600"
+    description:
+      "I focus on responsive layouts, clear UX, and SEO-minded structure — applications that work well for users and teams.",
+    color: "from-green-500 to-green-700"
   }
 ]
 
@@ -44,8 +47,9 @@ export default function MissionSection() {
           <h1 className="text-4xl font-bold text-gray-800 font-exo mb-4">
             My Mission
           </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Driven by passion, fueled by innovation, and committed to excellence in every project
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            From coursework and certifications to internships at Global Tech and Kingdom Culture Agency — focused on
+            polished, accessible, and maintainable web experiences.
           </p>
         </motion.div>
         

@@ -1,40 +1,65 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import Image from 'next/image'
+import {
+  Code2,
+  Layers,
+  Globe,
+  Terminal,
+  Github,
+  PenTool,
+} from 'lucide-react'
 
 const skills = [
   {
-    name: 'HTML',
-    description: 'I am proficient in using html to create structures web pages',
-    icon: '/images/html.svg',
-    delay: 0.1
+    name: 'HTML, CSS & JavaScript',
+    description:
+      'Semantic markup, responsive layouts, and modern JavaScript — including Bootstrap for rapid, polished UI.',
+    Icon: Code2,
+    delay: 0.1,
   },
   {
-    name: 'Bootstrap',
-    description: 'I am proficient in using bootstrap to make beautiful web pages',
-    icon: '/images/Bootstrap_logo.svg',
-    delay: 0.2
+    name: 'React & Next.js',
+    description:
+      'Component-driven front ends with React and Next.js, plus Node.js and API integration for full-stack features.',
+    Icon: Layers,
+    delay: 0.15,
   },
   {
-    name: 'CSS',
-    description: 'I can use css to style and improve the appearance of web pages',
-    icon: '/images/icons8-linkedin.svg',
-    delay: 0.3
+    name: 'WordPress & Elementor',
+    description:
+      'Building and maintaining WordPress sites with attention to layout, responsiveness, SEO, and content workflows.',
+    Icon: Globe,
+    delay: 0.2,
   },
   {
-    name: 'Python',
-    description: 'I have a certification in the Python programming language from Des Moines Area Community College.',
-    icon: '/images/python.svg',
-    delay: 0.4
-  }
+    name: 'Python & Java',
+    description:
+      'Certified in Python and Java with coursework and projects spanning scripting, OOP, and software fundamentals.',
+    Icon: Terminal,
+    delay: 0.25,
+  },
+  {
+    name: 'Git & GitHub',
+    description:
+      'Version control, branching, and collaborative workflows — clean commits and organized repositories.',
+    Icon: Github,
+    delay: 0.3,
+  },
+  {
+    name: 'Figma & Adobe CC',
+    description:
+      'UX-minded collaboration with design tools — from wireframes and prototypes to brand-aligned web implementation.',
+    Icon: PenTool,
+    delay: 0.35,
+  },
 ]
 
 export default function SkillsSection() {
   return (
     <motion.section
       id="skills-section"
-      className="text-center py-12 bg-gray-100"
+      className="bg-gray-100 py-12 text-center"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
@@ -45,47 +70,39 @@ export default function SkillsSection() {
           initial={{ y: 30, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.6 }}
-          className="text-4xl font-bold mb-12 text-gray-800 font-exo"
+          className="mb-12 font-exo text-4xl font-bold text-gray-800"
         >
           Skills
         </motion.h1>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {skills.map((skill, index) => (
-            <motion.div
-              key={skill.name}
-              initial={{ y: 50, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ delay: skill.delay, duration: 0.6 }}
-              whileHover={{ y: -10, scale: 1.05 }}
-              className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
-            >
+
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {skills.map((skill) => {
+            const Icon = skill.Icon
+            return (
               <motion.div
-                whileHover={{ rotate: 360 }}
-                transition={{ duration: 0.6 }}
-                className="mb-4"
+                key={skill.name}
+                initial={{ y: 50, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ delay: skill.delay, duration: 0.6 }}
+                whileHover={{ y: -10, scale: 1.02 }}
+                className="rounded-lg bg-white p-6 shadow-md transition-shadow duration-300 hover:shadow-lg"
               >
-                <Image
-                  src={skill.icon}
-                  alt={`${skill.name} logo`}
-                  width={80}
-                  height={80}
-                  className="mx-auto"
-                />
+                <motion.div
+                  whileHover={{ rotate: [0, -5, 5, 0] }}
+                  transition={{ duration: 0.5 }}
+                  className="mb-4 flex justify-center text-emerald-600"
+                >
+                  <Icon className="h-16 w-16" strokeWidth={1.25} aria-hidden />
+                </motion.div>
+
+                <h3 className="mb-3 font-exo text-xl font-bold text-gray-800">{skill.name}</h3>
+
+                <p className="font-lato text-left text-sm leading-relaxed text-gray-600">{skill.description}</p>
               </motion.div>
-              
-              <h3 className="text-xl font-bold mb-3 text-gray-800 font-exo">
-                {skill.name}
-              </h3>
-              
-              <p className="text-gray-600 font-lato">
-                {skill.description}
-              </p>
-            </motion.div>
-          ))}
+            )
+          })}
         </div>
       </div>
     </motion.section>
   )
 }
-

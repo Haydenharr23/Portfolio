@@ -18,7 +18,7 @@ export default function FooterSection() {
         transition={{ delay: 0.2, duration: 0.6 }}
         className="text-xl font-lato"
       >
-        &copy; Hayden Harris 2025
+        &copy; Hayden Harris 2026
       </motion.h3>
     </motion.section>
   )

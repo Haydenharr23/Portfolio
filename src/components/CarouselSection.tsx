@@ -96,7 +96,7 @@ export default function CarouselSection() {
                 onClick={() => setCurrentIndex(index)}
                 className={`w-4 h-4 rounded-full transition-all duration-300 ${
                   index === currentIndex 
-                    ? 'bg-blue-600 scale-125' 
+                    ? 'bg-emerald-600 scale-125' 
                     : 'bg-gray-300 hover:bg-gray-400 hover:scale-110'
                 }`}
                 aria-label={`Go to slide ${index + 1}`}

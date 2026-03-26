@@ -103,6 +103,8 @@ export default function ProjectsSection() {
                     className="object-cover object-center transition-transform duration-300 group-hover:scale-105"
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     unoptimized
+                    priority={index < 3}
+                    fetchPriority={index < 3 ? 'high' : 'low'}
                   />
                 </div>
 
@@ -121,7 +123,7 @@ export default function ProjectsSection() {
                     {project.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="rounded-full bg-blue-100 px-3 py-1 text-xs font-medium text-blue-700"
+                        className="rounded-full bg-emerald-100 px-3 py-1 text-xs font-medium text-emerald-800"
                       >
                         {tech}
                       </span>
@@ -134,7 +136,7 @@ export default function ProjectsSection() {
                       href={project.liveDemo}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`flex items-center justify-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors ${project.github ? 'flex-1' : 'w-full'}`}
+                      className={`flex items-center justify-center gap-2 px-4 py-2 bg-emerald-600 text-white rounded-lg text-sm font-medium hover:bg-emerald-700 transition-colors ${project.github ? 'flex-1' : 'w-full'}`}
                     >
                       <ExternalLink className="w-4 h-4" />
                       Live Site

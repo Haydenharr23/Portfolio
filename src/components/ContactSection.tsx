@@ -8,7 +8,7 @@ const contactItems = [
     icon: Linkedin,
     href: 'https://www.linkedin.com/in/haydendev/',
     label: 'LinkedIn',
-    color: 'text-blue-600 hover:text-blue-800'
+    color: 'text-emerald-600 hover:text-emerald-800'
   },
   {
     icon: Mail,
@@ -44,7 +44,7 @@ export default function ContactSection() {
           Contact
         </motion.h1>
         
-        <div className="flex justify-center space-x-12 md:space-x-16">
+        <div className="flex flex-wrap justify-center gap-10 md:gap-14">
           {contactItems.map((item, index) => (
             <motion.div
               key={item.label}

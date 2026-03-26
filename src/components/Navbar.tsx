@@ -53,7 +53,7 @@ export default function Navbar() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
                   whileHover={{ scale: 1.05 }}
-                  className="text-white hover:text-purple-300 transition-colors duration-300 px-3 py-2 rounded-md hover:bg-white hover:bg-opacity-10"
+                  className="text-white hover:text-emerald-300 transition-colors duration-300 px-3 py-2 rounded-md hover:bg-white hover:bg-opacity-10"
                   href={item.href}
                 >
                   {item.label}
@@ -73,7 +73,7 @@ export default function Navbar() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: index * 0.1 }}
                 whileHover={{ scale: 1.05 }}
-                className="block text-white hover:text-purple-300 transition-colors duration-300 px-3 py-2 rounded-md hover:bg-white hover:bg-opacity-10"
+                className="block text-white hover:text-emerald-300 transition-colors duration-300 px-3 py-2 rounded-md hover:bg-white hover:bg-opacity-10"
                 href={item.href}
                 onClick={() => setIsOpen(false)}
               >

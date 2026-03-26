@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import Image from 'next/image'
-import { ArrowDown, Code, Cpu, Zap } from 'lucide-react'
+import { ArrowDown } from 'lucide-react'
 import { useState } from 'react'
 import ContactForm from './ContactForm'
 
@@ -13,24 +13,24 @@ export default function HeroSection() {
       id="hero-section"
       className="relative h-[80vh] flex items-center justify-center overflow-hidden"
       style={{
-        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+        background: 'linear-gradient(135deg, #064e3b 0%, #022c22 100%)',
         backgroundAttachment: 'fixed'
       }}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
     >
-      {/* Animated Purple Ombre Background */}
+      {/* Animated green gradient background */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
           className="absolute inset-0"
           animate={{
             background: [
-              'linear-gradient(135deg, #4c1d95 0%, #6b21a8 50%, #7c3aed 100%)',
-              'linear-gradient(135deg, #7c3aed 0%, #8b5cf6 50%, #a855f7 100%)',
-              'linear-gradient(135deg, #a855f7 0%, #c084fc 50%, #8b5cf6 100%)',
-              'linear-gradient(135deg, #8b5cf6 0%, #7c3aed 50%, #6b21a8 100%)',
-              'linear-gradient(135deg, #6b21a8 0%, #4c1d95 50%, #7c3aed 100%)'
+              'linear-gradient(135deg, #022c22 0%, #064e3b 50%, #065f46 100%)',
+              'linear-gradient(135deg, #064e3b 0%, #065f46 50%, #047857 100%)',
+              'linear-gradient(135deg, #065f46 0%, #047857 50%, #065f46 100%)',
+              'linear-gradient(135deg, #047857 0%, #065f46 50%, #064e3b 100%)',
+              'linear-gradient(135deg, #065f46 0%, #022c22 50%, #064e3b 100%)'
             ]
           }}
           transition={{
@@ -78,35 +78,20 @@ export default function HeroSection() {
             </span>
           </h1>
           
-          <motion.div
-            initial={{ y: 30, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.7, duration: 0.8 }}
-            className="flex items-center justify-center space-x-4 text-lg text-white mb-6 drop-shadow-lg"
-          >
-            <Code className="w-5 h-5 text-purple-300" />
-            <span>Web Developer</span>
-            <div className="w-1 h-1 bg-gray-400 rounded-full" />
-            <Cpu className="w-5 h-5 text-purple-300" />
-            <span>Software Engineer</span>
-            <div className="w-1 h-1 bg-gray-400 rounded-full" />
-            <Zap className="w-5 h-5 text-purple-300" />
-            <span>Innovator</span>
-          </motion.div>
-          
           <motion.p
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.9, duration: 0.8 }}
-            className="text-lg text-white max-w-xl mx-auto leading-relaxed mb-8 drop-shadow-lg"
+            transition={{ delay: 0.7, duration: 0.8 }}
+            className="mx-auto mb-8 max-w-xl text-lg leading-relaxed text-white drop-shadow-lg md:text-xl"
           >
-            Crafting digital experiences that blend creativity with cutting-edge technology.
+            I&apos;m a frontend and full-stack developer who loves making things for the web that look sharp, feel smooth,
+            and actually make sense for the people using them.
           </motion.p>
           
           <motion.div
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 1.1, duration: 0.8 }}
+            transition={{ delay: 0.95, duration: 0.8 }}
             className="flex flex-col sm:flex-row gap-3 justify-center items-center"
           >
             <motion.button
