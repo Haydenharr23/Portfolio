@@ -1,8 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
-
 interface ContactFormPayload {
   name?: string
   email?: string
@@ -43,6 +41,7 @@ export async function POST(request: NextRequest) {
 
     const phoneLine = phone?.trim() ? `Phone: ${phone.trim()}` : 'Phone: Not provided'
 
+    const resend = new Resend(process.env.RESEND_API_KEY)
     const { error } = await resend.emails.send({
       from: fromEmail,
       to: contactEmail,
