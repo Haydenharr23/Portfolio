@@ -2,42 +2,55 @@
 
 import { motion } from 'framer-motion'
 import Image from 'next/image'
-import { ExternalLink, Github } from 'lucide-react'
+import { useState } from 'react'
+import { ChevronLeft, ChevronRight, ExternalLink, Github } from 'lucide-react'
 import { useAccent } from './AccentProvider'
 
 const projects = [
   {
     id: 1,
-    title: 'Kingdom Culture Agency',
+    title: 'Senior Project — Real Estate Website',
     description:
-      'Built for Kingdom Culture Agency in Nashville TN: Full WordPress/Elementor rebrand update. Added new pages, scheduled blog content, improved SEO structure, and integrated case studies.',
+      'ASU GIT senior capstone for a Des Moines-area real estate agent. Built a responsive marketing site with community guides, testimonials, and clear calls to action to drive client inquiries.',
     image:
-      'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=400&fit=crop&q=80',
-    technologies: ['WordPress', 'Elementor', 'SEO'],
-    liveDemo: 'https://kingdomcultureagency.com/'
+      'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=400&fit=crop&q=80',
+    technologies: ['HTML5', 'CSS3', 'JavaScript', 'Responsive Design'],
+    liveDemo: 'https://haydenharr23.github.io/Senior-Project-Real-Estate-Website/',
+    github: 'https://github.com/Haydenharr23/Senior-Project-Real-Estate-Website',
   },
   {
     id: 2,
-    title: 'Spartan Roof Coatings',
+    title: 'Kingdom Culture Agency',
     description:
-      'Client website delivered through my internship at Kingdom Culture Agency: led a team of 2 on a full WordPress update, built pages with WPBakery, and integrated SEO-focused blog content.',
-    image: '/images/project-spartan-roof.jpg',
-    technologies: ['WordPress', 'WPBakery', 'SEO'],
-    liveDemo: 'https://spartanroofcoating.com/'
+      'Full WordPress/Elementor rebrand update. Added new pages, scheduled blog content, improved SEO structure, and integrated case studies.',
+    image:
+      'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=400&fit=crop&q=80',
+    technologies: ['WordPress', 'Elementor', 'SEO'],
+    liveDemo: 'https://kingdomcultureagency.com/',
   },
   {
     id: 3,
+    title: 'Spartan Roof Coatings',
+    description:
+      'Led a team of 2 on a full WordPress update, built pages with WPBakery, and integrated SEO-focused blog content.',
+    image: '/images/project-spartan-roof.jpg',
+    technologies: ['WordPress', 'WPBakery', 'SEO'],
+    liveDemo: 'https://spartanroofcoating.com/',
+  },
+  {
+    id: 4,
     title: 'Dog Training Site',
     description:
       'Fictional dog training website built as a final class project, featuring structured sections, responsive layout, and interactive JavaScript.',
     image: '/images/project-dog-training.jpg',
     technologies: ['HTML5', 'CSS3', 'JavaScript'],
     liveDemo: 'https://haydenharr23.github.io/Dog-Training-Site/',
-    github: 'https://github.com/Haydenharr23/Dog-Training-Site'
-  }
+    github: 'https://github.com/Haydenharr23/Dog-Training-Site',
+  },
 ]
 
 export default function ProjectsSection() {
+  const [currentIndex, setCurrentIndex] = useState(0)
   const accent = useAccent()
   const chipClasses =
     accent === 'purple'
@@ -47,11 +60,19 @@ export default function ProjectsSection() {
     accent === 'purple'
       ? 'bg-purple-600 hover:bg-purple-700'
       : 'bg-emerald-600 hover:bg-emerald-700'
+  const activeDotClass = accent === 'purple' ? 'bg-purple-600' : 'bg-emerald-600'
+
+  const project = projects[currentIndex]
+
+  const nextSlide = () =>
+    setCurrentIndex((prev) => (prev === projects.length - 1 ? 0 : prev + 1))
+  const prevSlide = () =>
+    setCurrentIndex((prev) => (prev === 0 ? projects.length - 1 : prev - 1))
 
   return (
     <motion.section
       id="projects-section"
-      className="py-16 bg-gray-50"
+      className="bg-white py-16"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
@@ -59,91 +80,103 @@ export default function ProjectsSection() {
     >
       <div className="container mx-auto px-4">
         <motion.h2
-          initial={{ y: 30, opacity: 0 }}
+          initial={{ y: 20, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.2, duration: 0.6 }}
-          className="text-center text-4xl font-bold mb-16 text-gray-800 font-exo"
+          transition={{ delay: 0.1, duration: 0.6 }}
+          className="mb-10 font-exo text-4xl font-bold text-gray-800"
         >
-          Featured Projects
+          Projects
         </motion.h2>
-        
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch">
-          {projects.map((project, index) => (
-            <motion.div
-              key={project.id}
-              initial={{ y: 50, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ delay: index * 0.2, duration: 0.6 }}
-              whileHover={{ y: -5 }}
-              className="group flex h-full min-h-0 flex-col"
+
+        <div className="relative mx-auto max-w-5xl">
+          <div className="relative overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-lg">
+            {/* Carousel arrows — inside frame */}
+            <button
+              onClick={prevSlide}
+              className="absolute left-3 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/90 p-2.5 shadow-lg transition-all hover:scale-110 hover:bg-white sm:left-4 sm:p-3"
+              aria-label="Previous project"
             >
-              <div className="flex h-full min-h-[20rem] sm:min-h-[26rem] flex-col rounded-xl bg-white shadow-md transition-all duration-300 hover:shadow-xl">
-                {/* Image — fixed aspect so every card matches */}
-                <div className="relative h-44 w-full shrink-0 overflow-hidden sm:h-52">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    className="object-cover object-center transition-transform duration-300 group-hover:scale-105"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    unoptimized
-                    priority={index < 3}
-                    fetchPriority={index < 3 ? 'high' : 'low'}
-                  />
+              <ChevronLeft className="h-6 w-6 text-gray-800" />
+            </button>
+            <button
+              onClick={nextSlide}
+              className="absolute right-3 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/90 p-2.5 shadow-lg transition-all hover:scale-110 hover:bg-white sm:right-4 sm:p-3"
+              aria-label="Next project"
+            >
+              <ChevronRight className="h-6 w-6 text-gray-800" />
+            </button>
+
+            <motion.div
+              key={currentIndex}
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.4 }}
+            >
+              <div className="relative h-56 w-full sm:h-80">
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  className="object-cover"
+                  unoptimized
+                  priority={currentIndex === 0}
+                />
+              </div>
+              <div className="p-6 sm:p-8">
+                <h3 className="mb-3 font-exo text-2xl font-bold text-gray-800">{project.title}</h3>
+                <p className="mb-5 font-lato text-sm leading-relaxed text-gray-600 sm:text-base">
+                  {project.description}
+                </p>
+                <div className="mb-6 flex flex-wrap gap-2">
+                  {project.technologies.map((tech) => (
+                    <span key={tech} className={chipClasses}>
+                      {tech}
+                    </span>
+                  ))}
                 </div>
-
-                {/* Content — flex-1 fills remaining height; buttons stay at bottom */}
-                <div className="flex min-h-0 flex-1 flex-col p-4 sm:p-6">
-                  <h3 className="mb-3 shrink-0 font-exo text-base sm:text-xl font-bold text-gray-800">
-                    {project.title}
-                  </h3>
-
-                  <p className="mb-4 flex-1 text-xs sm:text-sm leading-relaxed text-gray-600 break-words">
-                    {project.description}
-                  </p>
-
-                  {/* Tech Stack */}
-                  <div className="mb-6 flex min-h-[2.75rem] flex-wrap content-start gap-2">
-                    {project.technologies.map((tech) => (
-                      <span
-                        key={tech}
-                        className={chipClasses}
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-
-                  {/* Buttons */}
-                  <div className="mt-auto flex shrink-0 gap-2">
+                <div className="flex gap-3">
+                  <a
+                    href={project.liveDemo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium text-white transition-colors ${liveButtonClasses}`}
+                  >
+                    <ExternalLink className="h-4 w-4" />
+                    Live Site
+                  </a>
+                  {project.github && (
                     <a
-                      href={project.liveDemo}
+                      href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`flex items-center justify-center gap-2 px-3 py-2 ${liveButtonClasses} text-white rounded-lg text-xs sm:text-sm font-medium transition-colors ${project.github ? 'flex-1' : 'w-full'}`}
+                      className="flex items-center gap-2 rounded-lg bg-gray-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-gray-700"
                     >
-                      <ExternalLink className="w-4 h-4" />
-                      Live Site
+                      <Github className="h-4 w-4" />
+                      Code
                     </a>
-                    {project.github ? (
-                      <a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex-1 flex items-center justify-center gap-2 px-3 py-2 bg-gray-600 text-white rounded-lg text-xs sm:text-sm font-medium hover:bg-gray-700 transition-colors"
-                      >
-                        <Github className="w-4 h-4" />
-                        Code
-                      </a>
-                    ) : null}
-                  </div>
+                  )}
                 </div>
               </div>
             </motion.div>
-          ))}
+          </div>
+
+          {/* Dot indicators */}
+          <div className="mt-6 flex justify-center gap-3">
+            {projects.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentIndex(index)}
+                className={`h-3 w-3 rounded-full transition-all duration-300 ${
+                  index === currentIndex
+                    ? `${activeDotClass} scale-125`
+                    : 'bg-gray-300 hover:bg-gray-400'
+                }`}
+                aria-label={`Go to project ${index + 1}`}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </motion.section>
   )
 }
-

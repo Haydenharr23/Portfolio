@@ -12,53 +12,39 @@ export default function Navbar() {
     accent === 'purple' ? 'hover:text-purple-300' : 'hover:text-emerald-300'
 
   const navItems = [
-    { href: '#mission-section', label: 'Mission' },
-    { href: '#projects-section', label: 'Projects' },
+    { href: '#about-section', label: 'About' },
     { href: '#skills-section', label: 'Skills' },
+    { href: '#projects-section', label: 'Projects' },
     { href: '#contact-section', label: 'Contact' },
     { href: '/documents/Hayden-Harris-Resume-2026.pdf', label: 'Resume', external: true },
   ]
 
   return (
-    <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6 }}
-      className="fixed top-0 left-0 right-0 z-50 bg-black bg-opacity-90 backdrop-blur-md"
-    >
+    <nav className="relative z-20 w-full">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
+        <div className="relative flex h-16 items-center">
+          {/* Logo — left */}
           <motion.a
-            whileHover={{ scale: 1.1 }}
+            whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="flex items-center text-white text-xl font-bold"
+            className="flex items-center text-xl font-bold text-white"
             href="#"
           >
-            <Star className="w-6 h-6 mr-2" />
+            <Star className="mr-2 h-6 w-6" />
             Hayden
           </motion.a>
-          
-          <button
-            className="md:hidden text-white p-2"
-            type="button"
-            onClick={() => setIsOpen(!isOpen)}
-            aria-expanded={isOpen}
-            aria-label="Toggle navigation"
-          >
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
-          
-          {/* Desktop Navigation */}
-          <div className="hidden md:block">
-            <div className="flex space-x-8">
+
+          {/* Desktop nav — centered */}
+          <div className="absolute left-1/2 hidden -translate-x-1/2 md:block">
+            <div className="flex space-x-6">
               {navItems.map((item, index) => (
                 <motion.a
                   key={item.href}
-                  initial={{ opacity: 0, y: -20 }}
+                  initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
+                  transition={{ delay: index * 0.08 }}
                   whileHover={{ scale: 1.05 }}
-                  className={`text-white ${navHoverText} transition-colors duration-300 px-3 py-2 rounded-md hover:bg-white hover:bg-opacity-10`}
+                  className={`rounded-md px-3 py-2 text-sm text-white transition-colors duration-300 ${navHoverText}`}
                   href={item.href}
                   target={item.external ? '_blank' : undefined}
                   rel={item.external ? 'noopener noreferrer' : undefined}
@@ -68,19 +54,29 @@ export default function Navbar() {
               ))}
             </div>
           </div>
+
+          {/* Hamburger — right */}
+          <button
+            className="ml-auto p-2 text-white md:hidden"
+            type="button"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-expanded={isOpen}
+            aria-label="Toggle navigation"
+          >
+            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
         </div>
-        
-        {/* Mobile Navigation */}
-        <div className={`${isOpen ? 'block' : 'hidden'} md:hidden`}>
-          <div className="px-2 pt-2 pb-3 space-y-1 bg-black bg-opacity-95 backdrop-blur-md rounded-lg mt-2">
+
+        {/* Mobile menu */}
+        <div className={`${isOpen ? 'block' : 'hidden'} pb-4 md:hidden`}>
+          <div className="space-y-1 rounded-lg bg-black/40 px-2 py-2 backdrop-blur-md">
             {navItems.map((item, index) => (
               <motion.a
                 key={item.href}
-                initial={{ opacity: 0, x: -20 }}
+                initial={{ opacity: 0, x: -10 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{ scale: 1.05 }}
-                className={`block text-white ${navHoverText} transition-colors duration-300 px-3 py-2 rounded-md hover:bg-white hover:bg-opacity-10`}
+                transition={{ delay: index * 0.05 }}
+                className={`block rounded-md px-3 py-2 text-white transition-colors duration-300 ${navHoverText}`}
                 href={item.href}
                 target={item.external ? '_blank' : undefined}
                 rel={item.external ? 'noopener noreferrer' : undefined}
@@ -92,6 +88,6 @@ export default function Navbar() {
           </div>
         </div>
       </div>
-    </motion.nav>
+    </nav>
   )
 }

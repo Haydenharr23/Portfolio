@@ -1,41 +1,13 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Linkedin, Mail, Github } from 'lucide-react'
-import { useAccent } from './AccentProvider'
+import ContactForm from './ContactForm'
 
 export default function ContactSection() {
-  const accent = useAccent()
-  const linkedInColor =
-    accent === 'purple'
-      ? 'text-purple-600 hover:text-purple-800'
-      : 'text-emerald-600 hover:text-emerald-800'
-
-  const contactItems = [
-    {
-      icon: Linkedin,
-      href: 'https://www.linkedin.com/in/haydendev/',
-      label: 'LinkedIn',
-      color: linkedInColor,
-    },
-    {
-      icon: Mail,
-      href: 'mailto:haydenharr@gmail.com',
-      label: 'Email',
-      color: 'text-red-600 hover:text-red-800',
-    },
-    {
-      icon: Github,
-      href: 'https://github.com/Haydenharr23',
-      label: 'GitHub',
-      color: 'text-gray-800 hover:text-gray-600',
-    },
-  ]
-
   return (
     <motion.section
       id="contact-section"
-      className="py-12 md:py-20 bg-white"
+      className="bg-gray-50 py-16"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
@@ -43,38 +15,23 @@ export default function ContactSection() {
     >
       <div className="container mx-auto px-4">
         <motion.h2
-          initial={{ y: 30, opacity: 0 }}
+          initial={{ y: 20, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.2, duration: 0.6 }}
-          className="text-center text-4xl font-bold mb-8 md:mb-12 text-gray-800 font-exo"
+          transition={{ delay: 0.1, duration: 0.6 }}
+          className="mb-10 font-exo text-4xl font-bold text-gray-800"
         >
           Contact
         </motion.h2>
-        
-        <div className="flex flex-wrap justify-center gap-10 md:gap-14">
-          {contactItems.map((item, index) => (
-            <motion.div
-              key={item.label}
-              initial={{ y: 50, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ delay: index * 0.2, duration: 0.6 }}
-              whileHover={{ scale: 1.1 }}
-              className="flex justify-center"
-            >
-              <a
-                href={item.href}
-                target={item.href.startsWith('http') ? '_blank' : undefined}
-                rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                className={`${item.color} transition-colors duration-300`}
-                aria-label={item.label}
-              >
-                <item.icon className="w-8 h-8 md:w-12 md:h-12" />
-              </a>
-            </motion.div>
-          ))}
-        </div>
+
+        <motion.div
+          initial={{ y: 30, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.2, duration: 0.6 }}
+          className="mx-auto max-w-xl"
+        >
+          <ContactForm variant="inline" />
+        </motion.div>
       </div>
     </motion.section>
   )
 }
-

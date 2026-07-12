@@ -1,89 +1,62 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Target, Lightbulb, Heart } from 'lucide-react'
-import { useAccent } from './AccentProvider'
 
 export default function MissionSection() {
-  const accent = useAccent()
-  const cardGradient =
-    accent === 'purple' ? 'from-purple-500 to-purple-600' : 'from-emerald-500 to-emerald-600'
-
-  const missionCards = [
-    {
-      icon: Target,
-      title: "Continuous Learning",
-      description:
-        "Studying Graphic Information Technology at ASU with a 4.0 GPA in relevant coursework. I stay current with front-end and full-stack tools through certifications in Python, Java, and web development.",
-      color: cardGradient,
-    },
-    {
-      icon: Lightbulb,
-      title: "Build & Ship",
-      description:
-        "Hands-on experience from concept to completion: full-stack projects at Global Tech (HTML, CSS, JavaScript, Bootstrap, Git) and WordPress development, branding, and project coordination at Kingdom Culture Agency.",
-      color: cardGradient,
-    },
-    {
-      icon: Heart,
-      title: "User-Centric Design",
-      description:
-        "I focus on responsive layouts, clear UX, and SEO-minded structure — applications that work well for users and teams.",
-      color: cardGradient,
-    },
-  ]
-
   return (
     <motion.section
-      id="mission-section"
-      className="py-16 bg-gray-50"
+      id="about-section"
+      className="bg-white py-16"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
     >
       <div className="container mx-auto px-4">
-        <motion.div
-          initial={{ y: 30, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.2, duration: 0.6 }}
-          className="text-center mb-12"
-        >
-          <h2 className="text-4xl font-bold text-gray-800 font-exo mb-4">
-            My Mission
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            From coursework and certifications to internships at Global Tech and Kingdom Culture Agency — focused on
-            polished, accessible, and maintainable web experiences.
-          </p>
-        </motion.div>
-        
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {missionCards.map((card, index) => (
-            <motion.div
-              key={card.title}
-              initial={{ y: 50, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ delay: index * 0.2, duration: 0.6 }}
-              whileHover={{ y: -10, scale: 1.02 }}
-              className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100"
-            >
-              <div className={`inline-flex p-4 rounded-2xl bg-gradient-to-r ${card.color} mb-6`}>
-                <card.icon className="w-8 h-8 text-white" />
-              </div>
-              
-              <h3 className="text-2xl font-bold text-gray-800 mb-4 font-exo">
-                {card.title}
-              </h3>
-              
-              <p className="text-gray-600 leading-relaxed font-lato">
-                {card.description}
-              </p>
-            </motion.div>
-          ))}
+        <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-[minmax(0,280px)_1fr] lg:gap-16">
+          <motion.h2
+            initial={{ y: 20, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.1, duration: 0.6 }}
+            viewport={{ once: true }}
+            className="font-exo text-4xl font-bold text-gray-800"
+          >
+            About me
+          </motion.h2>
+
+          <motion.div
+            initial={{ y: 20, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.2, duration: 0.6 }}
+            viewport={{ once: true }}
+            className="space-y-5 font-lato text-lg leading-relaxed text-gray-600"
+          >
+            <p>
+              I&apos;m a frontend and full-stack developer focused on polished, accessible, and
+              maintainable web experiences that help businesses grow online. From coursework and
+              certifications to real client work, I care about building sites that look great and hold
+              up over time.
+            </p>
+            <p>
+              I&apos;m studying Graphic Information Technology at Arizona State University with a
+              focus on full-stack web development — Dean&apos;s List honors, a strong GPA in
+              relevant coursework, and certifications in Python, Java, and web development keep me
+              sharp on both the design and engineering side.
+            </p>
+            <p>
+              Professionally, I&apos;ve shipped projects from concept to completion — full-stack
+              work at Global Tech and WordPress development, branding, and project coordination at
+              Kingdom Culture Agency. I also take on freelance projects for individuals and small
+              businesses who need a clean, responsive site without the overhead.
+            </p>
+            <p>
+              Whether it&apos;s a marketing page, a WordPress rebuild, or a custom front end, I
+              prioritize responsive layouts, clear UX, and SEO-minded structure so the final
+              product works well for users and the teams maintaining it.
+            </p>
+          </motion.div>
         </div>
       </div>
     </motion.section>
   )
 }
-

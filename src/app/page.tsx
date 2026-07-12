@@ -1,24 +1,21 @@
-import Navbar from '@/components/Navbar'
 import HeroSection from '@/components/HeroSection'
+import WhoIWorkForSection from '@/components/WhoIWorkForSection'
 import MissionSection from '@/components/MissionSection'
-import ProjectsSection from '@/components/ProjectsSection'
 import SkillsSection from '@/components/SkillsSection'
+import ProjectsSection from '@/components/ProjectsSection'
 import ContactSection from '@/components/ContactSection'
-import CarouselSection from '@/components/CarouselSection'
 import FooterSection from '@/components/FooterSection'
 
 export default function Home() {
   return (
     <main className="min-h-screen">
-      <Navbar />
       <HeroSection />
+      <WhoIWorkForSection />
       <MissionSection />
-      <ProjectsSection />
       <SkillsSection />
-      <CarouselSection />
+      <ProjectsSection />
       <ContactSection />
       <FooterSection />
     </main>
   )
 }
-
