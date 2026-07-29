@@ -20,6 +20,7 @@ export default function ContactForm({ isOpen = false, onClose, variant = 'modal'
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  const [submitError, setSubmitError] = useState<string | null>(null)
 
   const accent = useAccent()
   const focusRingClass = accent === 'purple' ? 'focus:ring-purple-500' : 'focus:ring-emerald-500'
@@ -47,8 +48,11 @@ export default function ContactForm({ isOpen = false, onClose, variant = 'modal'
         }),
       })
 
+      const responseBody = await response.json().catch(() => null)
+
       if (response.ok) {
         setSubmitStatus('success')
+        setSubmitError(null)
         setFormData({ name: '', email: '', phone: '', message: '' })
         if (variant === 'modal' && onClose) {
           setTimeout(() => {
@@ -58,10 +62,16 @@ export default function ContactForm({ isOpen = false, onClose, variant = 'modal'
         }
       } else {
         setSubmitStatus('error')
+        setSubmitError(
+          responseBody?.error || 'There was an unexpected problem sending your message.'
+        )
       }
     } catch (error) {
       console.error('Error sending email:', error)
       setSubmitStatus('error')
+      setSubmitError(
+        error instanceof Error ? error.message : 'Unexpected error sending email.'
+      )
     } finally {
       setIsSubmitting(false)
     }
@@ -70,6 +80,7 @@ export default function ContactForm({ isOpen = false, onClose, variant = 'modal'
   const handleReset = () => {
     setFormData({ name: '', email: '', phone: '', message: '' })
     setSubmitStatus('idle')
+    setSubmitError(null)
   }
 
   const formContent = (
@@ -140,7 +151,7 @@ export default function ContactForm({ isOpen = false, onClose, variant = 'modal'
           animate={{ opacity: 1, y: 0 }}
           className="rounded-lg border border-red-400 bg-red-100 p-4 text-red-700"
         >
-          Sorry, there was an error sending your message. Please try again.
+          {submitError || 'Sorry, there was an error sending your message. Please try again.'}
         </motion.div>
       )}
 

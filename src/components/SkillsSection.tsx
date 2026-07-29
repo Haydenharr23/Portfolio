@@ -66,7 +66,7 @@ export default function SkillsSection() {
           initial={{ y: 20, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.1, duration: 0.6 }}
-          className="mb-10 font-exo text-4xl font-bold text-gray-800"
+          className="mb-10 text-center font-exo text-4xl font-bold text-gray-800 lg:text-left"
         >
           Skills
         </motion.h2>
@@ -77,7 +77,7 @@ export default function SkillsSection() {
             initial={{ x: -30, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className={`relative aspect-square w-full max-w-md overflow-hidden rounded-2xl border-2 ${accentBorder} bg-white shadow-md lg:max-w-none`}
+            className={`relative aspect-square w-full max-w-md overflow-hidden rounded-2xl border-2 ${accentBorder} bg-white shadow-md lg:max-w-none lg:mx-0 mx-auto`}
           >
             <Image
               src="/images/skills-workspace.jpg"

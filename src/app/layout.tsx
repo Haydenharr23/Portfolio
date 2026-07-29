@@ -45,6 +45,11 @@ export const metadata: Metadata = {
       'Frontend and full-stack web developer studying Graphic Information Technology at Arizona State University. Experience with React, Next.js, WordPress, and more.',
     images: ['/images/portfoliopic.png'],
   },
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/favicon.ico',
+  },
 }
 
 export default function RootLayout({

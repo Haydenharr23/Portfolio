@@ -36,7 +36,7 @@ export default function HeroSection() {
   return (
     <motion.section
       id="hero-section"
-      className="relative flex min-h-[90svh] flex-col !py-0"
+      className="relative flex min-h-[90svh] flex-col justify-center !py-0"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
@@ -58,19 +58,19 @@ export default function HeroSection() {
       <Navbar />
 
       {/* Hero content — left text, right image */}
-      <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-1 items-center px-4 py-8 pb-10 sm:py-12 sm:pb-12">
+      <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-1 items-center px-4 py-10 sm:py-14">
         <div className="grid w-full grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16">
           {/* Left — text */}
           <motion.div
             initial={{ x: -40, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.8 }}
-            className="text-left"
+            className="text-center lg:text-left"
           >
-            <h1 className="mb-4 font-exo text-4xl font-bold tracking-tight text-white drop-shadow-2xl sm:text-5xl md:text-6xl">
+            <h1 className="mx-auto mb-4 max-w-3xl font-exo text-4xl font-bold tracking-tight text-white drop-shadow-2xl sm:text-5xl md:text-6xl lg:mx-0">
               Hayden Harris
             </h1>
-            <p className="mb-3 max-w-lg text-lg leading-relaxed text-white/90 drop-shadow-lg md:text-xl">
+            <p className="mx-auto mb-3 max-w-2xl text-lg leading-relaxed text-white/90 drop-shadow-lg md:text-xl lg:mx-0">
               Frontend &amp; full-stack developer at Kingdom Culture Agency — fluent in WordPress,
               web development, and modern JavaScript frameworks.
             </p>
@@ -81,7 +81,7 @@ export default function HeroSection() {
             >
               Based in Des Moines, Iowa · Studying at Arizona State University
             </p>
-            <div className="flex flex-col gap-3 sm:flex-row">
+            <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-center lg:justify-start">
               <motion.button
                 onClick={() => setIsContactFormOpen(true)}
                 whileHover={{ scale: 1.05, y: -2 }}
@@ -108,7 +108,7 @@ export default function HeroSection() {
             transition={{ delay: 0.5, duration: 0.8 }}
             className="flex justify-center lg:justify-end"
           >
-            <div className="relative h-64 w-64 sm:h-80 sm:w-80">
+            <div className="relative h-64 w-64 sm:h-80 sm:w-80 transition-transform duration-300 ease-out hover:scale-105">
               <Image
                 src="/images/portfoliopic.png"
                 alt="Hayden Harris — professional headshot"

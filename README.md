@@ -45,7 +45,12 @@ Before running this project, make sure you have the following installed:
    yarn install
    ```
 
-3. **Add your images:**
+3. **Create environment variables:**
+   - Copy `.env.local.example` to `.env.local`
+   - Set `RESEND_API_KEY` with your Resend API key
+   - Optionally update `CONTACT_EMAIL` and `RESEND_FROM_EMAIL`
+
+4. **Add your images:**
    - Copy your images to the `public/images/` directory
    - Make sure you have the following images:
      - `me.jpg` - Your profile photo

@@ -12,8 +12,7 @@ const projects = [
     title: 'Senior Project — Real Estate Website',
     description:
       'ASU GIT senior capstone for a Des Moines-area real estate agent. Built a responsive marketing site with community guides, testimonials, and clear calls to action to drive client inquiries.',
-    image:
-      'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=400&fit=crop&q=80',
+    image: '/images/realestate.png',
     technologies: ['HTML5', 'CSS3', 'JavaScript', 'Responsive Design'],
     liveDemo: 'https://haydenharr23.github.io/Senior-Project-Real-Estate-Website/',
     github: 'https://github.com/Haydenharr23/Senior-Project-Real-Estate-Website',
